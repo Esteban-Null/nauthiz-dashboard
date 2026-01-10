@@ -15,7 +15,7 @@ export default function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const API_KEY = '0zjzklCGohgk459ff45eb316638hygee675g577yh84gtug55u'
+    const API_KEY = import.meta.env.VITE_API_KEY
     
     fetch('http://127.0.0.1:8000/api/stats', {
       headers: { 'X-API-Key': API_KEY }
