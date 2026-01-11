@@ -1,16 +1,47 @@
-# React + Vite
+# NAUTHIZ Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **cyberpunk-themed, real-time threat intelligence dashboard** with immersive spaceship-style UI. Query IOCs, visualize risk, and explore enriched threat data in real-time.
 
-Currently, two official plugins are available:
+![Nauthiz Dashboard](./screenshots/dashboard-main.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Interactive IOC Scanner** – Query IPs, domains, hashes with real-time enrichment
+- **Risk Visualization** – Pie charts, activity timeline, threat gauge
+- **Live Stats** – Total queries, high-risk IOCs, response time
+- **Cyberpunk UI** – Neon glassmorphism, scanlines, immersive animations
+- **Query History** – Browse past lookups with scoring snapshots
+- **Multi-Source Data** – VirusTotal, WHOIS, SecurityTrails enrichment
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Threat Scanner](./screenshots/query-results.png)
+![Risk Charts](./screenshots/risk-charts.png)
 
-## Expanding the ESLint configuration
+## Quick Start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+- Node.js 18+
+- **Backend running** at `http://127.0.0.1:8000`
+
+### Setup
+
+```bash
+npm install
+npm run dev
+
+## Environment Variables
+
+Create `.env.local`:
+
+VITE_API_KEY=your-api-key-from-the-backend
+**Why this is necessary:**
+
+The `VITE_` prefix tells Vite to expose this variable to the frontend at build time via `import.meta.env.VITE_API_KEY`.
+
+- **Keeps key out of source code** – Use `.env.local` (git ignored)
+- **Secure in CI/CD** – Set in deployment platform (Vercel, GitHub Actions)
+- **Note:** Frontend keys are visible in browser DevTools anyway, so treat this as "config" not "security".
+
+**Keep `.env.local` in `.gitignore` and:**
+.env.local
+.env.*.local
+
