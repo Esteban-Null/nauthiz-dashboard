@@ -1,0 +1,112 @@
+.stats-card {
+  position: relative;
+  background: rgba(10, 14, 39, 0.7);
+  backdrop-filter: blur(20px);
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  padding: 30px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.stats-card:hover {
+  border-color: #ff00ff;
+  box-shadow: 0 0 40px rgba(255, 0, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.3);
+  transform: translateY(-5px);
+  background: rgba(10, 14, 39, 0.9);
+}
+
+.card-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  animation: glow-rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes glow-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+
+.card-label {
+  font-size: 0.9em;
+  color: #00dddd;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+.card-value {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff, 0 0 40px #7700ff;
+  animation: value-glow 2s ease-in-out infinite;
+}
+
+@keyframes value-glow {
+  0%, 100% {
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #7700ff;
+    color: #00ffff;
+  }
+  50% {
+    text-shadow: 0 0 30px #00ffff, 0 0 60px #ff00ff;
+    color: #ff00ff;
+  }
+}
+
+.scan-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ffff, transparent);
+  animation: scan-sweep 3s ease-in-out infinite;
+}
+
+@keyframes scan-sweep {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-card {
+    padding: 20px;
+  }
+  
+  .card-value {
+    font-size: 1.8em;
+  }
+  
+  .card-icon {
+    font-size: 2em;
+  }
+}

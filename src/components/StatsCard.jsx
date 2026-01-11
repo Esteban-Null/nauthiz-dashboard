@@ -1,22 +1,15 @@
-export default function StatsCard({ label, value, icon, color = '#00d9ff' }) {
+import './StatsCard.css'
+
+export default function StatsCard({ icon, label, value }) {
   return (
-    <div style={{
-      border: `2px solid ${color}`,
-      borderRadius: '4px',
-      padding: '1.5rem',
-      background: `linear-gradient(135deg, rgba(0, 217, 255, 0.03) 0%, rgba(178, 75, 255, 0.02) 100%)`,
-      boxShadow: `0 0 30px ${color}40, inset 0 0 15px ${color}15`,
-      textAlign: 'center',
-      flex: 1,
-      minWidth: '200px'
-    }}>
-      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>{icon}</div>
-      <div style={{ color: '#8b9dc3', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '2px' }}>
-        {label}
+    <div className="stats-card">
+      <div className="card-glow"></div>
+      <div className="card-content">
+        <div className="card-icon">{icon}</div>
+        <div className="card-label">{label}</div>
+        <div className="card-value">{value}</div>
       </div>
-      <div style={{ fontSize: '2.5rem', color, fontWeight: 'bold', marginTop: '0.5rem', textShadow: `0 0 10px ${color}` }}>
-        {value}
-      </div>
+      <div className="scan-effect"></div>
     </div>
-  );
+  )
 }
